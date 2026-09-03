@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Registrar venta · TechStock</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="breadcrumb"><a href="ventas.html">Ventas</a> / Nueva</div>
+        <div class="page-head">
+          <div>
+            <h1>Registrar venta</h1>
+            <p>Seleccione un producto del inventario para generar la venta</p>
+          </div>
+        </div>
+
+        <div class="error-banner" id="stockError">Cantidad no disponible en stock.</div>
+
+        <div class="panel" style="max-width: 640px;">
+          <form id="ventaForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="productoId">Producto *</label>
+                <select id="productoId" required></select>
+                <div class="field-error">Seleccione un producto.</div>
+                <div class="text-muted" id="stockInfo" style="font-size:12.5px; margin-top:6px;"></div>
+              </div>
+
+              <div class="form-group full">
+                <label for="cliente">Cliente *</label>
+                <input type="text" id="cliente" required />
+                <div class="field-error">Ingrese el nombre del cliente.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="cantidad">Cantidad *</label>
+                <input type="number" id="cantidad" min="1" step="1" required />
+                <div class="field-error">Ingrese una cantidad válida disponible en stock.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="fecha">Fecha *</label>
+                <input type="date" id="fecha" required />
+                <div class="field-error">Seleccione la fecha de venta.</div>
+              </div>
+
+              <div class="form-group full">
+                <label>Total a cobrar</label>
+                <div id="totalPreview" style="font-size:20px; font-weight:700; color:#2f6fed;">Bs. 0</div>
+              </div>
+            </div>
+
+            <div class="row-actions">
+              <button type="submit" class="btn btn-primary">Registrar venta</button>
+              <a href="ventas.html" class="btn btn-secondary">Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/venta-form.js"></script>
+</body>
+</html>
